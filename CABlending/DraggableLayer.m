@@ -10,10 +10,4 @@
 
 @implementation DraggableLayer
 
-- (id<CAAction>)actionForKey:(NSString *)event
-{
-    return nil;
-}
-
-
 @end

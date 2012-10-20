@@ -11,33 +11,12 @@
 		50EA23BD1632540E001521DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50EA23BB1632540E001521DD /* InfoPlist.strings */; };
 		50EA23BF1632540E001521DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23BE1632540E001521DD /* main.m */; };
 		50EA23C31632540E001521DD /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 50EA23C11632540E001521DD /* Credits.rtf */; };
-		50EA23C61632540E001521DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23C51632540E001521DD /* AppDelegate.m */; };
 		50EA23C91632540E001521DD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50EA23C71632540E001521DD /* MainMenu.xib */; };
-		50EA23D11632540E001521DD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA23D01632540E001521DD /* SenTestingKit.framework */; };
-		50EA23D21632540E001521DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA23B21632540E001521DD /* Cocoa.framework */; };
-		50EA23DA1632540E001521DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50EA23D81632540E001521DD /* InfoPlist.strings */; };
-		50EA23DD1632540E001521DD /* CABlendingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23DC1632540E001521DD /* CABlendingTests.m */; };
 		50EA23E716325426001521DD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA23E616325426001521DD /* QuartzCore.framework */; };
-		50EA23EA16325470001521DD /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23E916325470001521DD /* MainWindow.m */; };
-		50EA23EB16325470001521DD /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23E916325470001521DD /* MainWindow.m */; };
-		50EA23EE16325499001521DD /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23ED16325499001521DD /* MainView.m */; };
-		50EA23EF16325499001521DD /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23ED16325499001521DD /* MainView.m */; };
 		50EA23F11632565A001521DD /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA23F01632565A001521DD /* Quartz.framework */; };
 		50EA23F416325AC4001521DD /* DraggableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23F316325AC4001521DD /* DraggableLayer.m */; };
-		50EA23F516325AC4001521DD /* DraggableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23F316325AC4001521DD /* DraggableLayer.m */; };
 		50EA23F816325B46001521DD /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23F716325B46001521DD /* CustomView.m */; };
-		50EA23F916325B46001521DD /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23F716325B46001521DD /* CustomView.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		50EA23D31632540E001521DD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 50EA23A51632540E001521DD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 50EA23AD1632540E001521DD;
-			remoteInfo = CABlending;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		50EA23AE1632540E001521DD /* CABlending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CABlending.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,20 +29,9 @@
 		50EA23BE1632540E001521DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		50EA23C01632540E001521DD /* CABlending-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CABlending-Prefix.pch"; sourceTree = "<group>"; };
 		50EA23C21632540E001521DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		50EA23C41632540E001521DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		50EA23C51632540E001521DD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		50EA23C81632540E001521DD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		50EA23CF1632540E001521DD /* CABlendingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CABlendingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50EA23D01632540E001521DD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		50EA23D71632540E001521DD /* CABlendingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CABlendingTests-Info.plist"; sourceTree = "<group>"; };
-		50EA23D91632540E001521DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		50EA23DB1632540E001521DD /* CABlendingTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CABlendingTests.h; sourceTree = "<group>"; };
-		50EA23DC1632540E001521DD /* CABlendingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CABlendingTests.m; sourceTree = "<group>"; };
 		50EA23E616325426001521DD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		50EA23E816325470001521DD /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
-		50EA23E916325470001521DD /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
-		50EA23EC16325499001521DD /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
-		50EA23ED16325499001521DD /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
 		50EA23F01632565A001521DD /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		50EA23F216325AC4001521DD /* DraggableLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableLayer.h; sourceTree = "<group>"; };
 		50EA23F316325AC4001521DD /* DraggableLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableLayer.m; sourceTree = "<group>"; };
@@ -82,15 +50,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50EA23CB1632540E001521DD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50EA23D11632540E001521DD /* SenTestingKit.framework in Frameworks */,
-				50EA23D21632540E001521DD /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -98,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				50EA23B81632540E001521DD /* CABlending */,
-				50EA23D51632540E001521DD /* CABlendingTests */,
 				50EA23B11632540E001521DD /* Frameworks */,
 				50EA23AF1632540E001521DD /* Products */,
 			);
@@ -108,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				50EA23AE1632540E001521DD /* CABlending.app */,
-				50EA23CF1632540E001521DD /* CABlendingTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,14 +95,8 @@
 		50EA23B81632540E001521DD /* CABlending */ = {
 			isa = PBXGroup;
 			children = (
-				50EA23C41632540E001521DD /* AppDelegate.h */,
-				50EA23C51632540E001521DD /* AppDelegate.m */,
 				50EA23C71632540E001521DD /* MainMenu.xib */,
 				50EA23B91632540E001521DD /* Supporting Files */,
-				50EA23E816325470001521DD /* MainWindow.h */,
-				50EA23E916325470001521DD /* MainWindow.m */,
-				50EA23EC16325499001521DD /* MainView.h */,
-				50EA23ED16325499001521DD /* MainView.m */,
 				50EA23F216325AC4001521DD /* DraggableLayer.h */,
 				50EA23F316325AC4001521DD /* DraggableLayer.m */,
 				50EA23F616325B46001521DD /* CustomView.h */,
@@ -162,25 +113,6 @@
 				50EA23BE1632540E001521DD /* main.m */,
 				50EA23C01632540E001521DD /* CABlending-Prefix.pch */,
 				50EA23C11632540E001521DD /* Credits.rtf */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		50EA23D51632540E001521DD /* CABlendingTests */ = {
-			isa = PBXGroup;
-			children = (
-				50EA23DB1632540E001521DD /* CABlendingTests.h */,
-				50EA23DC1632540E001521DD /* CABlendingTests.m */,
-				50EA23D61632540E001521DD /* Supporting Files */,
-			);
-			path = CABlendingTests;
-			sourceTree = "<group>";
-		};
-		50EA23D61632540E001521DD /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				50EA23D71632540E001521DD /* CABlendingTests-Info.plist */,
-				50EA23D81632540E001521DD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -205,25 +137,6 @@
 			productReference = 50EA23AE1632540E001521DD /* CABlending.app */;
 			productType = "com.apple.product-type.application";
 		};
-		50EA23CE1632540E001521DD /* CABlendingTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 50EA23E31632540E001521DD /* Build configuration list for PBXNativeTarget "CABlendingTests" */;
-			buildPhases = (
-				50EA23CA1632540E001521DD /* Sources */,
-				50EA23CB1632540E001521DD /* Frameworks */,
-				50EA23CC1632540E001521DD /* Resources */,
-				50EA23CD1632540E001521DD /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				50EA23D41632540E001521DD /* PBXTargetDependency */,
-			);
-			name = CABlendingTests;
-			productName = CABlendingTests;
-			productReference = 50EA23CF1632540E001521DD /* CABlendingTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -246,7 +159,6 @@
 			projectRoot = "";
 			targets = (
 				50EA23AD1632540E001521DD /* CABlending */,
-				50EA23CE1632540E001521DD /* CABlendingTests */,
 			);
 		};
 /* End PBXProject section */
@@ -262,31 +174,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50EA23CC1632540E001521DD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50EA23DA1632540E001521DD /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		50EA23CD1632540E001521DD /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		50EA23AA1632540E001521DD /* Sources */ = {
@@ -294,35 +182,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				50EA23BF1632540E001521DD /* main.m in Sources */,
-				50EA23C61632540E001521DD /* AppDelegate.m in Sources */,
-				50EA23EA16325470001521DD /* MainWindow.m in Sources */,
-				50EA23EE16325499001521DD /* MainView.m in Sources */,
 				50EA23F416325AC4001521DD /* DraggableLayer.m in Sources */,
 				50EA23F816325B46001521DD /* CustomView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50EA23CA1632540E001521DD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50EA23DD1632540E001521DD /* CABlendingTests.m in Sources */,
-				50EA23EB16325470001521DD /* MainWindow.m in Sources */,
-				50EA23EF16325499001521DD /* MainView.m in Sources */,
-				50EA23F516325AC4001521DD /* DraggableLayer.m in Sources */,
-				50EA23F916325B46001521DD /* CustomView.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		50EA23D41632540E001521DD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 50EA23AD1632540E001521DD /* CABlending */;
-			targetProxy = 50EA23D31632540E001521DD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		50EA23BB1632540E001521DD /* InfoPlist.strings */ = {
@@ -347,14 +212,6 @@
 				50EA23C81632540E001521DD /* en */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		50EA23D81632540E001521DD /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				50EA23D91632540E001521DD /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -437,36 +294,6 @@
 			};
 			name = Release;
 		};
-		50EA23E41632540E001521DD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CABlending.app/Contents/MacOS/CABlending";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CABlending/CABlending-Prefix.pch";
-				INFOPLIST_FILE = "CABlendingTests/CABlendingTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		50EA23E51632540E001521DD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CABlending.app/Contents/MacOS/CABlending";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CABlending/CABlending-Prefix.pch";
-				INFOPLIST_FILE = "CABlendingTests/CABlendingTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -486,14 +313,7 @@
 				50EA23E21632540E001521DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		50EA23E31632540E001521DD /* Build configuration list for PBXNativeTarget "CABlendingTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				50EA23E41632540E001521DD /* Debug */,
-				50EA23E51632540E001521DD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
