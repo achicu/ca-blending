@@ -7,9 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CustomView.h"
+#import "MainView.h"
+#import "MainWindow.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet MainWindow *window;
+@property (assign) IBOutlet MainView *mainView;
+@property (assign) IBOutlet CustomView *customView;
+
+- (IBAction)load:(id)sender;
 
 @end
