@@ -70,17 +70,18 @@
     return result;
 }
 
-- (void)printSublayers:(CALayer*)layer withIndentation:(int)indent
+- (NSString*)printSublayers:(CALayer*)layer withIndentation:(int)indent
 {
-    NSLog(@"%@Layer: %@ filter: %@", [self indentation:indent], layer, layer.compositingFilter);
+    NSMutableString* result = [NSMutableString stringWithFormat:@"%@Layer: %@ filter: %@\n", [self indentation:indent], layer, layer.compositingFilter];
     for (CALayer* child in layer.sublayers) {
-        [self printSublayers:child withIndentation:indent + 2];
+        [result appendString:[self printSublayers:child withIndentation:indent + 2]];
     }
+    return result;
 }
 
 - (IBAction)printLayers:(id)sender
 {
-    [self printSublayers:self.layer withIndentation:0];
+    [self.textView setString:[self printSublayers:self.layer withIndentation:0]];
 }
 
 - (IBAction)groupLayers:(id)sender
@@ -150,14 +151,14 @@
 
 - (void)mouseMoved:(NSEvent *)theEvent
 {
-    CGPoint point = [self convertPointFromBacking:[theEvent locationInWindow]];
+    CGPoint point = [self convertPoint:[theEvent locationInWindow] fromView:self.window.contentView];
     [self checkForNewLayerAt:point];
 }
 
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
-    CGPoint point = [self convertPointFromBacking:[theEvent locationInWindow]];
+    CGPoint point = [self convertPoint:[theEvent locationInWindow] fromView:self.window.contentView];
     [self checkForNewLayerAt:point];
     if (!draggedLayer)
         return;

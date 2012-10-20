@@ -16,4 +16,6 @@
     BOOL isDragging;
 }
 
+@property (assign) IBOutlet NSTextView *textView;
+
 @end
