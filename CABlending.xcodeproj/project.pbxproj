@@ -17,6 +17,16 @@
 		50EA23D21632540E001521DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA23B21632540E001521DD /* Cocoa.framework */; };
 		50EA23DA1632540E001521DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50EA23D81632540E001521DD /* InfoPlist.strings */; };
 		50EA23DD1632540E001521DD /* CABlendingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23DC1632540E001521DD /* CABlendingTests.m */; };
+		50EA23E716325426001521DD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA23E616325426001521DD /* QuartzCore.framework */; };
+		50EA23EA16325470001521DD /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23E916325470001521DD /* MainWindow.m */; };
+		50EA23EB16325470001521DD /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23E916325470001521DD /* MainWindow.m */; };
+		50EA23EE16325499001521DD /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23ED16325499001521DD /* MainView.m */; };
+		50EA23EF16325499001521DD /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23ED16325499001521DD /* MainView.m */; };
+		50EA23F11632565A001521DD /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA23F01632565A001521DD /* Quartz.framework */; };
+		50EA23F416325AC4001521DD /* DraggableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23F316325AC4001521DD /* DraggableLayer.m */; };
+		50EA23F516325AC4001521DD /* DraggableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23F316325AC4001521DD /* DraggableLayer.m */; };
+		50EA23F816325B46001521DD /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23F716325B46001521DD /* CustomView.m */; };
+		50EA23F916325B46001521DD /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23F716325B46001521DD /* CustomView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +59,16 @@
 		50EA23D91632540E001521DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50EA23DB1632540E001521DD /* CABlendingTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CABlendingTests.h; sourceTree = "<group>"; };
 		50EA23DC1632540E001521DD /* CABlendingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CABlendingTests.m; sourceTree = "<group>"; };
+		50EA23E616325426001521DD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		50EA23E816325470001521DD /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
+		50EA23E916325470001521DD /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
+		50EA23EC16325499001521DD /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
+		50EA23ED16325499001521DD /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
+		50EA23F01632565A001521DD /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		50EA23F216325AC4001521DD /* DraggableLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableLayer.h; sourceTree = "<group>"; };
+		50EA23F316325AC4001521DD /* DraggableLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableLayer.m; sourceTree = "<group>"; };
+		50EA23F616325B46001521DD /* CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
+		50EA23F716325B46001521DD /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50EA23F11632565A001521DD /* Quartz.framework in Frameworks */,
+				50EA23E716325426001521DD /* QuartzCore.framework in Frameworks */,
 				50EA23B31632540E001521DD /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,6 +116,8 @@
 		50EA23B11632540E001521DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50EA23F01632565A001521DD /* Quartz.framework */,
+				50EA23E616325426001521DD /* QuartzCore.framework */,
 				50EA23B21632540E001521DD /* Cocoa.framework */,
 				50EA23D01632540E001521DD /* SenTestingKit.framework */,
 				50EA23B41632540E001521DD /* Other Frameworks */,
@@ -118,6 +142,14 @@
 				50EA23C51632540E001521DD /* AppDelegate.m */,
 				50EA23C71632540E001521DD /* MainMenu.xib */,
 				50EA23B91632540E001521DD /* Supporting Files */,
+				50EA23E816325470001521DD /* MainWindow.h */,
+				50EA23E916325470001521DD /* MainWindow.m */,
+				50EA23EC16325499001521DD /* MainView.h */,
+				50EA23ED16325499001521DD /* MainView.m */,
+				50EA23F216325AC4001521DD /* DraggableLayer.h */,
+				50EA23F316325AC4001521DD /* DraggableLayer.m */,
+				50EA23F616325B46001521DD /* CustomView.h */,
+				50EA23F716325B46001521DD /* CustomView.m */,
 			);
 			path = CABlending;
 			sourceTree = "<group>";
@@ -263,6 +295,10 @@
 			files = (
 				50EA23BF1632540E001521DD /* main.m in Sources */,
 				50EA23C61632540E001521DD /* AppDelegate.m in Sources */,
+				50EA23EA16325470001521DD /* MainWindow.m in Sources */,
+				50EA23EE16325499001521DD /* MainView.m in Sources */,
+				50EA23F416325AC4001521DD /* DraggableLayer.m in Sources */,
+				50EA23F816325B46001521DD /* CustomView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +307,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				50EA23DD1632540E001521DD /* CABlendingTests.m in Sources */,
+				50EA23EB16325470001521DD /* MainWindow.m in Sources */,
+				50EA23EF16325499001521DD /* MainView.m in Sources */,
+				50EA23F516325AC4001521DD /* DraggableLayer.m in Sources */,
+				50EA23F916325B46001521DD /* CustomView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
