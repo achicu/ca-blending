@@ -18,4 +18,6 @@
 
 @property (assign) IBOutlet NSTextView *textView;
 
+@property (assign) IBOutlet NSOutlineView *layersTree;
+
 @end

@@ -20,6 +20,11 @@
     [self addTrackingRect:self.bounds owner:self userData:nil assumeInside:NO];
 }
 
+- (BOOL)acceptsFirstMouse:(NSEvent *)theEvent
+{
+    return YES;
+}
+
 - (void)makeBoxWithBackground:(CGColorRef)background andBorder:(CGColorRef)border
 {
     DraggableLayer* layer = [[DraggableLayer alloc] init];
@@ -33,6 +38,8 @@
     [layer setCompositingFilter:filter];
     
     [self.layer addSublayer:layer];
+    
+    [self.layersTree reloadData];
 }
 
 - (IBAction)makeGreenBox:(id)sender
@@ -98,6 +105,7 @@
         [groupLayer addSublayer:child];
     }
     [layer addSublayer:groupLayer];
+    [self.layersTree reloadData];
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent
