@@ -18,6 +18,8 @@
     draggedLayer = nil;
     isDragging = NO;
     [self addTrackingRect:self.bounds owner:self userData:nil assumeInside:NO];
+    [self.layersTree registerForDraggedTypes:[NSArray arrayWithObject:@"com.adobe.DraggableLayer"]];
+    [self.layersTree setDraggingSourceOperationMask:NSDragOperationMove forLocal:YES];
 }
 
 - (BOOL)acceptsFirstMouse:(NSEvent *)theEvent

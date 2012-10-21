@@ -8,8 +8,44 @@
 
 #import "LayerSource.h"
 
-@implementation LayerSource
+@interface ByRefLayerEncoder : NSObject <NSCoding>
 
+@property (assign) CALayer* layer;
+
+@end
+
+@implementation ByRefLayerEncoder
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    //[aCoder encodeByrefObject:self.layer];
+    [aCoder encodeInt64:(int64_t)self.layer forKey:@"layer"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [self init]) {
+        self.layer = (__bridge CALayer*)(void*)[aDecoder decodeInt64ForKey:@"layer"];
+    }
+    return self;
+}
+
+- (id)initWithLayer:(CALayer*)layer
+{
+    if (self = [self init]) {
+        self.layer = layer;
+    }
+    return self;
+}
+
++ (ByRefLayerEncoder*)encoderWithLayer:(CALayer*)layer
+{
+    return [[ByRefLayerEncoder alloc] initWithLayer:layer];
+}
+
+@end
+
+@implementation LayerSource
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
@@ -38,6 +74,56 @@
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
     return [(CALayer*)item description];
+}
+
+// Drag - drop
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView acceptDrop:(id<NSDraggingInfo>)info item:(id)item childIndex:(NSInteger)index
+{
+    NSData* data = [[info draggingPasteboard] dataForType:@"com.adobe.DraggableLayer"];
+    if (!data)
+        return NO;
+    ByRefLayerEncoder* encoder = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    if (!encoder)
+        return NO;
+    CALayer* layer = [encoder layer];
+    CALayer* oldParent = [layer superlayer];
+    NSLog(@"old parent is %@", oldParent);
+    [layer removeFromSuperlayer];
+    [item insertSublayer:layer atIndex:(unsigned)index];
+    [outlineView reloadItem:oldParent reloadChildren:YES];
+    [outlineView reloadItem:item reloadChildren:YES];
+    return YES;
+}
+
+- (NSDragOperation)outlineView:(NSOutlineView *)outlineView validateDrop:(id<NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)index
+{
+    if (item == nil)
+        return NSDragOperationNone;
+    NSData* data = [[info draggingPasteboard] dataForType:@"com.adobe.DraggableLayer"];
+    if (!data)
+        return NO;
+    ByRefLayerEncoder* encoder = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    if (!encoder)
+        return NO;
+    CALayer* layer = [encoder layer];
+    CALayer* newParent = (CALayer*)item;
+    while (newParent) {
+        if (newParent == layer)
+            return NSDragOperationNone;
+        newParent = [newParent superlayer];
+    }
+    return NSDragOperationMove;
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView writeItems:(NSArray *)items toPasteboard:(NSPasteboard *)pasteboard
+{
+    if (items.count != 1 || [items containsObject:self.baseView.layer])
+        return NO;
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:[ByRefLayerEncoder encoderWithLayer:[items objectAtIndex:0]]];
+    [pasteboard declareTypes:[NSArray arrayWithObject:@"com.adobe.DraggableLayer"] owner:self];
+    [pasteboard setData:data forType:@"com.adobe.DraggableLayer"];
+    return YES;
 }
 
 @end
