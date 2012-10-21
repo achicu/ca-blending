@@ -40,6 +40,7 @@
     [self.layer addSublayer:layer];
     
     [self.layersTree reloadData];
+    [self.layersTree expandItem:nil expandChildren:YES];
 }
 
 - (IBAction)makeGreenBox:(id)sender
@@ -106,6 +107,7 @@
     }
     [layer addSublayer:groupLayer];
     [self.layersTree reloadData];
+    [self.layersTree expandItem:nil expandChildren:YES];
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent
