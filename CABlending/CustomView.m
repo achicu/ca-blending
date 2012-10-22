@@ -62,6 +62,11 @@
     [self setSelectedLayer:layer];
 }
 
+- (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item
+{
+    return (item != self.layer);
+}
+
 - (IBAction)updateCompositingFilter:(id)sender
 {
     if (!draggedLayer)
@@ -167,7 +172,7 @@
         [draggedLayer setBorderWidth:5];
     draggedLayer = layer;
     if (!draggedLayer) {
-        [self.compositingFilterPopUp setEnabled:YES];
+        [self.compositingFilterPopUp setEnabled:NO];
         return;
     }
     [draggedLayer setBorderWidth:15];
@@ -177,6 +182,9 @@
         filterName = [[draggedLayer compositingFilter] name];
     [self.compositingFilterPopUp selectItem:[self.compositingFilterPopUp itemWithTitle:filterName]];
     [self.compositingFilterPopUp setEnabled:YES];
+    
+    NSIndexSet* set = [NSIndexSet indexSetWithIndex:[self.layersTree rowForItem:draggedLayer]];
+    [self.layersTree selectRowIndexes:set byExtendingSelection:NO];
 }
 
 - (void)mouseDragged:(NSEvent *)theEvent
