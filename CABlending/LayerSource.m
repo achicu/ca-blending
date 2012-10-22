@@ -49,7 +49,6 @@
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
-    NSLog(@"outlineView=%@ - numberOfChildrenOfItem=%@", outlineView, item);
     if (item == nil)
         return 1;
     return [[(CALayer*)item sublayers] count];
@@ -57,7 +56,6 @@
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
-    NSLog(@"outlineView=%@ - isItemExpandable=%@", outlineView, item);
     if (item == nil)
         return YES;
     return [[(CALayer*)item sublayers] count];
@@ -65,7 +63,6 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
-    NSLog(@"outlineView=%@ - child=%ld - item=%@", outlineView, index, item);
     if (item == nil)
         return self.baseView.layer;
     return [[(CALayer*)item sublayers] objectAtIndex:index];
@@ -123,12 +120,21 @@
     if (!encoder)
         return NO;
     CALayer* layer = [encoder layer];
+    
+    CALayer* newParent = (CALayer*)item;
     CALayer* oldParent = [layer superlayer];
-    NSLog(@"old parent is %@", oldParent);
+    CALayer* layerAbove = (index < newParent.sublayers.count) ? [newParent.sublayers objectAtIndex:index] : nil;
+
     [layer removeFromSuperlayer];
-    [item insertSublayer:layer atIndex:(unsigned)index];
+
+    if (layerAbove)
+        [newParent insertSublayer:layer below:layerAbove];
+    else
+        [newParent addSublayer:layer];
+    
     [outlineView reloadItem:oldParent reloadChildren:YES];
     [outlineView reloadItem:item reloadChildren:YES];
+    
     return YES;
 }
 

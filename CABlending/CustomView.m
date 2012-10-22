@@ -20,6 +20,35 @@
     [self addTrackingRect:self.bounds owner:self userData:nil assumeInside:NO];
     [self.layersTree registerForDraggedTypes:[NSArray arrayWithObject:@"com.adobe.DraggableLayer"]];
     [self.layersTree setDraggingSourceOperationMask:NSDragOperationMove forLocal:YES];
+    
+    [self.compositingFilterPopUp addItemsWithTitles:
+            [NSArray arrayWithObjects:
+                [NSString string],
+                @"CIAdditionCompositing",
+                @"CIColorBlendMode",
+                @"CIColorBurnBlendMode",
+                @"CIColorDodgeBlendMode",
+                @"CIDarkenBlendMode",
+                @"CIDifferenceBlendMode",
+                @"CIExclusionBlendMode",
+                @"CIHardLightBlendMode",
+                @"CIHueBlendMode",
+                @"CILightenBlendMode",
+                @"CILuminosityBlendMode",
+                @"CIMaximumCompositing",
+                @"CIMinimumCompositing",
+                @"CIMultiplyBlendMode",
+                @"CIMultiplyCompositing",
+                @"CIOverlayBlendMode",
+                @"CISaturationBlendMode",
+                @"CIScreenBlendMode",
+                @"CISoftLightBlendMode",
+                @"CISourceAtopCompositing",
+                @"CISourceInCompositing",
+                @"CISourceOutCompositing",
+                @"CISourceOverCompositing", nil]];
+    
+    [self.compositingFilterPopUp setEnabled:NO];
 }
 
 - (BOOL)acceptsFirstMouse:(NSEvent *)theEvent
@@ -33,6 +62,24 @@
     [self setSelectedLayer:layer];
 }
 
+- (IBAction)updateCompositingFilter:(id)sender
+{
+    if (!draggedLayer)
+        return;
+    
+    NSString* filterType = [[self.compositingFilterPopUp selectedItem] title];
+    
+    CIFilter* filter = nil;
+    if ([filterType length]) {
+        filter = [CIFilter filterWithName:filterType];
+        [filter setName:filterType];
+        [filter setDefaults];
+    }
+    
+    [draggedLayer setCompositingFilter:filter];
+    [self.layersTree reloadItem:draggedLayer reloadChildren:NO];
+}
+
 - (void)makeBoxWithBackground:(CGColorRef)background andBorder:(CGColorRef)border withName:(NSString*)name
 {
     CALayer* layer = [CALayer layer];
@@ -41,10 +88,13 @@
     [layer setBorderColor:border];
     [layer setBorderWidth:5];
     [layer setBackgroundColor:background];
-    CIFilter* filter = [CIFilter filterWithName:@"CIDifferenceBlendMode"];
+    
+    /*
+     CIFilter* filter = [CIFilter filterWithName:@"CIDifferenceBlendMode"];
     [filter setName:@"CIDifferenceBlendMode"];
     [filter setDefaults];
-    [layer setCompositingFilter:filter];
+    [layer setCompositingFilter:filter];*/
+    
     [layer setName:name];
     
     [self.layer addSublayer:layer];
@@ -116,9 +166,17 @@
     if (draggedLayer)
         [draggedLayer setBorderWidth:5];
     draggedLayer = layer;
-    if (!draggedLayer)
+    if (!draggedLayer) {
+        [self.compositingFilterPopUp setEnabled:YES];
         return;
+    }
     [draggedLayer setBorderWidth:15];
+    
+    NSString* filterName = [NSString string];
+    if ([draggedLayer compositingFilter])
+        filterName = [[draggedLayer compositingFilter] name];
+    [self.compositingFilterPopUp selectItem:[self.compositingFilterPopUp itemWithTitle:filterName]];
+    [self.compositingFilterPopUp setEnabled:YES];
 }
 
 - (void)mouseDragged:(NSEvent *)theEvent

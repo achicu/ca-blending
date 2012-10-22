@@ -21,7 +21,10 @@
 - (IBAction)makeYellowBox:(id)sender;
 - (IBAction)makeBlueBox:(id)sender;
 - (IBAction)groupLayers:(id)sender;
+- (IBAction)updateCompositingFilter:(id)sender;
 
 @property (weak) IBOutlet NSOutlineView *layersTree;
+
+@property (weak) IBOutlet NSPopUpButton *compositingFilterPopUp;
 
 @end
