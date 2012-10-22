@@ -8,11 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface CustomView : NSView
+@interface CustomView : NSView <NSOutlineViewDelegate>
 {
     CALayer* draggedLayer;
     CGPoint startPosition;
     CGPoint mouseStartPosition;
+    BOOL hasDragged;
     BOOL isDragging;
 }
 

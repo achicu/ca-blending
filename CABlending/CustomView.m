@@ -18,6 +18,7 @@
     draggedLayer = nil;
     isDragging = NO;
     [self.layer setName:@"Root"];
+    [self.layersTree setDelegate:self];
     [self addTrackingRect:self.bounds owner:self userData:nil assumeInside:NO];
     [self.layersTree registerForDraggedTypes:[NSArray arrayWithObject:@"com.adobe.DraggableLayer"]];
     [self.layersTree setDraggingSourceOperationMask:NSDragOperationMove forLocal:YES];
@@ -26,6 +27,12 @@
 - (BOOL)acceptsFirstMouse:(NSEvent *)theEvent
 {
     return YES;
+}
+
+- (void)outlineViewSelectionDidChange:(NSNotification *)notification
+{
+    CALayer* layer = [self.layersTree itemAtRow:[self.layersTree selectedRow]];
+    [self setSelectedLayer:layer];
 }
 
 - (void)makeBoxWithBackground:(CGColorRef)background andBorder:(CGColorRef)border withName:(NSString*)name
@@ -113,20 +120,13 @@
     [self.window setAcceptsMouseMovedEvents:NO];
 }
 
-- (void)checkForNewLayerAt:(CGPoint)position
+- (void)setSelectedLayer:(CALayer*)layer
 {
-    CALayer* layer = self.layer;
-    CALayer* hitLayer = nil;
-    for (CALayer* child in layer.sublayers) {
-        CGPoint newPosition = [layer convertPoint:position toLayer:child];
-        if ([child containsPoint:newPosition])
-            hitLayer = child;
-    }
-    if (hitLayer == draggedLayer)
+    if (layer == draggedLayer)
         return;
     if (draggedLayer)
         [draggedLayer setBorderWidth:5];
-    draggedLayer = hitLayer;
+    draggedLayer = layer;
     if (!draggedLayer)
         return;
     [draggedLayer setBorderWidth:15];
@@ -136,9 +136,14 @@
 {
     if (!draggedLayer)
         return;
+    
     CGPoint delta = [theEvent locationInWindow];
     delta.x -= mouseStartPosition.x;
     delta.y -= mouseStartPosition.y;
+    if (!delta.x || !delta.y)
+        return;
+    
+    hasDragged = YES;
     
     CGPoint position = startPosition;
     position.x += delta.x;
@@ -153,28 +158,24 @@
     [self.layersTree reloadItem:draggedLayer];
 }
 
-- (void)mouseMoved:(NSEvent *)theEvent
-{
-    CGPoint point = [self convertPoint:[theEvent locationInWindow] fromView:self.window.contentView];
-    [self checkForNewLayerAt:point];
-}
-
-
 - (void)mouseDown:(NSEvent *)theEvent
 {
-    CGPoint point = [self convertPoint:[theEvent locationInWindow] fromView:self.window.contentView];
-    [self checkForNewLayerAt:point];
     if (!draggedLayer)
         return;
+    hasDragged = NO;
     startPosition = [draggedLayer position];
     mouseStartPosition = [theEvent locationInWindow];
 }
 
 - (void)mouseUp:(NSEvent *)theEvent
 {
-    if (!draggedLayer)
+    if (hasDragged)
         return;
-    draggedLayer = nil;
+    CGPoint point = [self convertPoint:[theEvent locationInWindow] fromView:self.window.contentView];
+    CALayer* hitLayer = [self.layer hitTest:point];
+    if (hitLayer == self.layer)
+        return;
+    [self setSelectedLayer:hitLayer];
 }
 
 
