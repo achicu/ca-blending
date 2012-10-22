@@ -7,7 +7,6 @@
 //
 
 #import "CustomView.h"
-#import "DraggableLayer.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation CustomView
@@ -18,7 +17,6 @@
     draggedLayer = nil;
     isDragging = NO;
     [self.layer setName:@"Root"];
-    [self.layersTree setDelegate:self];
     [self addTrackingRect:self.bounds owner:self userData:nil assumeInside:NO];
     [self.layersTree registerForDraggedTypes:[NSArray arrayWithObject:@"com.adobe.DraggableLayer"]];
     [self.layersTree setDraggingSourceOperationMask:NSDragOperationMove forLocal:YES];
@@ -37,7 +35,7 @@
 
 - (void)makeBoxWithBackground:(CGColorRef)background andBorder:(CGColorRef)border withName:(NSString*)name
 {
-    DraggableLayer* layer = [[DraggableLayer alloc] init];
+    CALayer* layer = [CALayer layer];
     [layer setBounds:CGRectMake(0, 0, 100, 100)];
     [layer setAnchorPoint:CGPointZero];
     [layer setBorderColor:border];
@@ -92,19 +90,10 @@
 
 - (IBAction)groupLayers:(id)sender
 {
-    CALayer* layer = self.layer;
     CALayer* groupLayer = [CALayer layer];
     [groupLayer setName:@"Group layer"];
     [groupLayer setBounds:CGRectZero];
-    NSArray* layerList = [[layer sublayers] copy];
-    for (CALayer* child in layerList) {
-        // Do not include the previous groupping layers.
-        if (![child isKindOfClass:[DraggableLayer class]])
-            continue;
-        [child removeFromSuperlayer];
-        [groupLayer addSublayer:child];
-    }
-    [layer addSublayer:groupLayer];
+    [self.layer addSublayer:groupLayer];
     [self.layersTree reloadData];
     [self.layersTree expandItem:nil expandChildren:YES];
 }

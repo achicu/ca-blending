@@ -11,6 +11,6 @@
 
 @interface LayerSource : NSObject <NSOutlineViewDataSource>
 
-@property (assign) IBOutlet CustomView *baseView;
+@property (weak) IBOutlet CustomView *baseView;
 
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		504304961634D66E00F66794 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 504304951634D66E00F66794 /* Document.m */; };
+		504304991634D6AE00F66794 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 504304981634D6AE00F66794 /* Document.xib */; };
 		508A660F1634513400BD70D4 /* LayerSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 508A660E1634513400BD70D4 /* LayerSource.m */; };
 		508A66111634522E00BD70D4 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA23B51632540E001521DD /* AppKit.framework */; };
 		50EA23B31632540E001521DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA23B21632540E001521DD /* Cocoa.framework */; };
@@ -16,11 +18,13 @@
 		50EA23C91632540E001521DD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50EA23C71632540E001521DD /* MainMenu.xib */; };
 		50EA23E716325426001521DD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA23E616325426001521DD /* QuartzCore.framework */; };
 		50EA23F11632565A001521DD /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA23F01632565A001521DD /* Quartz.framework */; };
-		50EA23F416325AC4001521DD /* DraggableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23F316325AC4001521DD /* DraggableLayer.m */; };
 		50EA23F816325B46001521DD /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA23F716325B46001521DD /* CustomView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		504304941634D66E00F66794 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
+		504304951634D66E00F66794 /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
+		504304981634D6AE00F66794 /* Document.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Document.xib; sourceTree = "<group>"; };
 		508A660D1634513400BD70D4 /* LayerSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerSource.h; sourceTree = "<group>"; };
 		508A660E1634513400BD70D4 /* LayerSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerSource.m; sourceTree = "<group>"; };
 		50EA23AE1632540E001521DD /* CABlending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CABlending.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,8 +40,6 @@
 		50EA23C81632540E001521DD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		50EA23E616325426001521DD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		50EA23F01632565A001521DD /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
-		50EA23F216325AC4001521DD /* DraggableLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableLayer.h; sourceTree = "<group>"; };
-		50EA23F316325AC4001521DD /* DraggableLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableLayer.m; sourceTree = "<group>"; };
 		50EA23F616325B46001521DD /* CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
 		50EA23F716325B46001521DD /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,14 +100,15 @@
 		50EA23B81632540E001521DD /* CABlending */ = {
 			isa = PBXGroup;
 			children = (
+				504304981634D6AE00F66794 /* Document.xib */,
 				50EA23C71632540E001521DD /* MainMenu.xib */,
 				50EA23B91632540E001521DD /* Supporting Files */,
-				50EA23F216325AC4001521DD /* DraggableLayer.h */,
-				50EA23F316325AC4001521DD /* DraggableLayer.m */,
 				50EA23F616325B46001521DD /* CustomView.h */,
 				50EA23F716325B46001521DD /* CustomView.m */,
 				508A660D1634513400BD70D4 /* LayerSource.h */,
 				508A660E1634513400BD70D4 /* LayerSource.m */,
+				504304941634D66E00F66794 /* Document.h */,
+				504304951634D66E00F66794 /* Document.m */,
 			);
 			path = CABlending;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				50EA23BD1632540E001521DD /* InfoPlist.strings in Resources */,
 				50EA23C31632540E001521DD /* Credits.rtf in Resources */,
 				50EA23C91632540E001521DD /* MainMenu.xib in Resources */,
+				504304991634D6AE00F66794 /* Document.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,9 +191,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				50EA23BF1632540E001521DD /* main.m in Sources */,
-				50EA23F416325AC4001521DD /* DraggableLayer.m in Sources */,
 				50EA23F816325B46001521DD /* CustomView.m in Sources */,
 				508A660F1634513400BD70D4 /* LayerSource.m in Sources */,
+				504304961634D66E00F66794 /* Document.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,6 @@
 - (IBAction)makeBlueBox:(id)sender;
 - (IBAction)groupLayers:(id)sender;
 
-@property (assign) IBOutlet NSOutlineView *layersTree;
+@property (weak) IBOutlet NSOutlineView *layersTree;
 
 @end
