@@ -73,7 +73,43 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
-    return [(CALayer*)item description];
+    CALayer* layer = (CALayer*)item;
+    if ([[tableColumn identifier] compare:@"name"] == NSOrderedSame) {
+        return [layer name];
+    } else if ([[tableColumn identifier] compare:@"bounds"] == NSOrderedSame) {
+        CGRect bounds = [layer bounds];
+        return [NSString stringWithFormat:@"%.2fx%.2f - %.2fx%.2f", bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height];
+    } else if ([[tableColumn identifier] compare:@"position"] == NSOrderedSame) {
+        CGPoint point = [layer position];
+        return [NSString stringWithFormat:@"%.2fx%.2f", point.x, point.y];
+    } else if ([[tableColumn identifier] compare:@"compositing-filter"] == NSOrderedSame) {
+        if (![layer compositingFilter])
+            return @"none";
+        return [[layer compositingFilter] name];
+    } else if ([[tableColumn identifier] compare:@"color"] == NSOrderedSame) {
+        CGColorRef color = [layer backgroundColor];
+        if (!color)
+            return @"no color";
+        NSMutableString* string = [NSMutableString stringWithString:@"("];
+        const CGFloat* components = CGColorGetComponents(color);
+        size_t count = CGColorGetNumberOfComponents(color);
+        for (size_t i = 0; i < count; ++i) {
+            if (i)
+                [string appendString:@", "];
+            [string appendFormat:@"%.2f", components[i]];
+        }
+        [string appendString:@")"];
+        return string;
+    }
+    
+    return [NSString string];
+}
+
+- (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
+{
+    CALayer* layer = (CALayer*)item;
+    if ([[tableColumn identifier] compare:@"name"] == NSOrderedSame)
+        [layer setName:object];
 }
 
 // Drag - drop

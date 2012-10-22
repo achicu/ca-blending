@@ -17,6 +17,7 @@
     [self setWantsLayer:YES];
     draggedLayer = nil;
     isDragging = NO;
+    [self.layer setName:@"Root"];
     [self addTrackingRect:self.bounds owner:self userData:nil assumeInside:NO];
     [self.layersTree registerForDraggedTypes:[NSArray arrayWithObject:@"com.adobe.DraggableLayer"]];
     [self.layersTree setDraggingSourceOperationMask:NSDragOperationMove forLocal:YES];
@@ -27,7 +28,7 @@
     return YES;
 }
 
-- (void)makeBoxWithBackground:(CGColorRef)background andBorder:(CGColorRef)border
+- (void)makeBoxWithBackground:(CGColorRef)background andBorder:(CGColorRef)border withName:(NSString*)name
 {
     DraggableLayer* layer = [[DraggableLayer alloc] init];
     [layer setBounds:CGRectMake(0, 0, 100, 100)];
@@ -36,8 +37,10 @@
     [layer setBorderWidth:5];
     [layer setBackgroundColor:background];
     CIFilter* filter = [CIFilter filterWithName:@"CIDifferenceBlendMode"];
+    [filter setName:@"CIDifferenceBlendMode"];
     [filter setDefaults];
     [layer setCompositingFilter:filter];
+    [layer setName:name];
     
     [self.layer addSublayer:layer];
     
@@ -49,7 +52,7 @@
 {
     CGColorRef red = CGColorCreateGenericRGB(1, 0, 0, 0.5);
     CGColorRef green = CGColorCreateGenericRGB(0, 1, 0, 1);
-    [self makeBoxWithBackground:green andBorder:red];
+    [self makeBoxWithBackground:green andBorder:red withName:@"Green box"];
     CGColorRelease(red);
     CGColorRelease(green);
 }
@@ -58,7 +61,7 @@
 {
     CGColorRef red = CGColorCreateGenericRGB(1, 0, 0, 0.5);
     CGColorRef blue = CGColorCreateGenericRGB(0, 0, 1, 1);
-    [self makeBoxWithBackground:blue andBorder:red];
+    [self makeBoxWithBackground:blue andBorder:red withName:@"Blue box"];
     CGColorRelease(red);
     CGColorRelease(blue);
 }
@@ -67,7 +70,7 @@
 {
     CGColorRef red = CGColorCreateGenericRGB(1, 0, 0, 0.5);
     CGColorRef yellow = CGColorCreateGenericRGB(1, 1, 0, 1);
-    [self makeBoxWithBackground:yellow andBorder:red];
+    [self makeBoxWithBackground:yellow andBorder:red withName:@"Yellow box"];
     CGColorRelease(red);
     CGColorRelease(yellow);
 }
@@ -80,24 +83,11 @@
     return result;
 }
 
-- (NSString*)printSublayers:(CALayer*)layer withIndentation:(int)indent
-{
-    NSMutableString* result = [NSMutableString stringWithFormat:@"%@Layer: %@ filter: %@\n", [self indentation:indent], layer, layer.compositingFilter];
-    for (CALayer* child in layer.sublayers) {
-        [result appendString:[self printSublayers:child withIndentation:indent + 2]];
-    }
-    return result;
-}
-
-- (IBAction)printLayers:(id)sender
-{
-    [self.textView setString:[self printSublayers:self.layer withIndentation:0]];
-}
-
 - (IBAction)groupLayers:(id)sender
 {
     CALayer* layer = self.layer;
     CALayer* groupLayer = [CALayer layer];
+    [groupLayer setName:@"Group layer"];
     [groupLayer setBounds:CGRectZero];
     NSArray* layerList = [[layer sublayers] copy];
     for (CALayer* child in layerList) {
@@ -159,6 +149,8 @@
                      forKey:kCATransactionDisableActions];
     [draggedLayer setPosition:position];
     [CATransaction commit];
+    
+    [self.layersTree reloadItem:draggedLayer];
 }
 
 - (void)mouseMoved:(NSEvent *)theEvent

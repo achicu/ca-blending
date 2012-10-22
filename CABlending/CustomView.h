@@ -16,7 +16,10 @@
     BOOL isDragging;
 }
 
-@property (assign) IBOutlet NSTextView *textView;
+- (IBAction)makeGreenBox:(id)sender;
+- (IBAction)makeYellowBox:(id)sender;
+- (IBAction)makeBlueBox:(id)sender;
+- (IBAction)groupLayers:(id)sender;
 
 @property (assign) IBOutlet NSOutlineView *layersTree;
 
