@@ -111,7 +111,7 @@
 
 - (void)setSelectedLayer:(CALayer*)layer
 {
-    if (layer == draggedLayer)
+    if (layer == draggedLayer || layer == self.layer)
         return;
     if (draggedLayer)
         [draggedLayer setBorderWidth:5];
